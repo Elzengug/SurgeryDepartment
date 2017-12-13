@@ -1,0 +1,24 @@
+﻿@model SurgeryDepartment.Models.DomainModels.Patient
+@{
+    ViewBag.Title = "CreatePatient";
+}
+
+@using (Html.BeginForm("CreatePatient", "Patient", FormMethod.Post))
+{
+    <p>Введите свое имя: </p>
+    @Html.TextBoxFor(x => x.FullName)
+    <p>Введите адрес :</p>
+    @Html.TextBoxFor(x => x.Address)
+    <p>Введите пол</p>
+    @Html.TextBoxFor(x => x.Sex)
+    <p>Введите диагноз</p>
+    @Html.TextBoxFor(x => x.Diagnosis)
+    <p>Введите дату рождения</p>
+    @Html.TextBoxFor(x => x.Birthday)
+    <p>Введите дату поступления</p>
+    @Html.TextBoxFor(x => x.EntryDate)
+
+
+    <p><input type="submit" value="Отправить" /></p>
+}
+

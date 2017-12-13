@@ -1,0 +1,37 @@
+﻿@model SurgeryDepartment.Models.ViewModels.PatientViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+<div style="">
+    <table class="table table-hover" style="width: 1000px; margin: 0 auto;">
+        <thead>
+            <tr>
+                <th scope="col" width="20px">Номер карточки</th>
+                <th scope="col">ФИО</th>
+                <th scope="col">Пол</th>
+                <th scope="col">Диагноз</th>
+                <th scope="col">Адрес</th>
+                <th scope="col">Дата рождения</th>
+                <th scope="col">Дата поступления</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var patient in Model.Patients)
+            {
+                <tr class="table-info">
+                    <th>@patient.CardNumber</th>
+                    <td>@patient.FullName</td>
+                    <td>@patient.Sex</td>
+                    <td>@patient.Diagnosis</td>
+                    <td>@patient.Address</td>
+                    <td>@patient.Birthday.ToString("MM/dd/yyyy")</td>
+                    <td>@patient.EntryDate.ToString("MM/dd/yyyy")</td>
+                    <td>
+                        @Html.ActionLink("Delete", "Delete", "Patient", new { patientId = patient.CardNumber, hidefocus = "hidefocus" }, null)
+                    </td>
+                    <td><a>Удалить</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
